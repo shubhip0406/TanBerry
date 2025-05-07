@@ -8,3 +8,4 @@ function enterRealm() {
 function openModel(modelId) {
   alert(`You clicked on: ${modelId}\n\nYou can embed a Sketchfab viewer or open a modal here.`);
 }
+
