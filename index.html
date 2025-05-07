@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TanBerry | Game Art Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TanBerry | Game Artist Portfolio</title>
+  <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- HOME SCREEN -->
+  <nav class="switch-nav">
+    <div class="nav-logo">🎮 TB</div>
+    <ul>
+      <li><button onclick="switchScene('home')">Home</button></li>
+      <li><button onclick="switchScene('gallery')">Gallery</button></li>
+      <li><button onclick="switchScene('about')">About</button></li>
+      <li><button onclick="switchScene('contact')">Contact</button></li>
+    </ul>
+  </nav>
+
   <section id="home" class="scene active">
-    <div class="hero">
-      <h1 class="logo">🎮 TanBerry</h1>
-      <p class="subtitle">Enter the Realm of Creativity</p>
-      <button class="start-btn" onclick="switchScene('gallery')">Enter the Realm</button>
+    <div class="hero-screen">
+      <h1 class="title">✨ TanBerry</h1>
+      <p class="subtitle">Press Start to Enter</p>
+      <button class="nintendo-btn" onclick="switchScene('gallery')">Start</button>
     </div>
   </section>
 
-  <!-- GALLERY -->
   <section id="gallery" class="scene">
-    <button class="back-btn" onclick="switchScene('home')">⬅ Back to Home</button>
-    <h2>🗺️ Artist's Map</h2>
-    <div class="tiles">
-      <div class="tile" onclick="openModel('model1')">🏰 Temple of Concepts</div>
-      <div class="tile" onclick="openModel('model2')">🌀 Shrine of Renders</div>
-      <div class="tile" onclick="openModel('model3')">📦 Artifact Room</div>
+    <h2>📦 The Gallery</h2>
+    <div class="card-grid">
+      <div class="card" onclick="openModel('model1')">
+        <h3>Temple of Concepts</h3>
+        <p>Stylized models, concept forms, early designs.</p>
+      </div>
+      <div class="card" onclick="openModel('model2')">
+        <h3>Shrine of Renders</h3>
+        <p>Final renders, lighting experiments, textures.</p>
+      </div>
+      <div class="card" onclick="openModel('model3')">
+        <h3>Artifact Room</h3>
+        <p>Props, accessories, and interactables.</p>
+      </div>
     </div>
-    <button class="nav-btn" onclick="switchScene('about')">➡ Character Profile</button>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="scene">
-    <button class="back-btn" onclick="switchScene('gallery')">⬅ Back to Map</button>
-    <h2>📜 Character Profile</h2>
-    <div class="stat-card">
+    <h2>📜 About the Artist</h2>
+    <div class="about-box">
       <p><strong>Name:</strong> TanBerry</p>
       <ul>
-        <li>❤️ <strong>Strength:</strong> Sculpting</li>
-        <li>✨ <strong>Magic:</strong> Blender FX</li>
-        <li>🔮 <strong>Wisdom:</strong> Game Aesthetics</li>
+        <li>❤️ Sculpting Mastery</li>
+        <li>✨ Blender FX Wizardry</li>
+        <li>🧠 Game Aesthetics Strategist</li>
       </ul>
     </div>
-    <button class="nav-btn" onclick="switchScene('contact')">➡ Message Menu</button>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="scene">
-    <button class="back-btn" onclick="switchScene('about')">⬅ Back to Profile</button>
-    <h2>📬 Message Menu</h2>
-    <ul class="social-links">
-      <li><a href="#">🌐 ArtStation</a></li>
-      <li><a href="#">🔗 LinkedIn</a></li>
-      <li><a href="#">🐦 Twitter</a></li>
-    </ul>
+    <h2>📬 Get in Touch</h2>
     <form>
-      <label>Email:</label>
-      <input type="email" placeholder="Your email" required />
-      <label>Message:</label>
-      <textarea placeholder="Send a scroll to the hero..." required></textarea>
-      <button type="submit">Send Message</button>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Send a message to the Hero..." required></textarea>
+      <button type="submit">Send</button>
     </form>
-    <footer>
-      <p>🔍 Press "A" to hear a message from Player 2 💙</p>
-      <audio id="easterEgg" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
-    </footer>
+    <div class="social-row">
+      <a href="#">🌐 ArtStation</a>
+      <a href="#">🔗 LinkedIn</a>
+      <a href="#">🐦 Twitter</a>
+    </div>
+    <p class="easter-hint">🔍 Press "A" for a surprise</p>
+    <audio id="easterEgg" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
   </section>
 </body>
 </html>
+
 
 
 
