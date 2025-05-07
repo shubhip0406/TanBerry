@@ -19,51 +19,55 @@
   </nav>
 
   <header class="hero">
-    <h1 class="logo">TB</h1>
-    <p class="subtitle">Enter the Realm of TanBerry</p>
-    <button onclick="enterRealm()">Start Adventure</button>
+    <h1 class="logo">🎮 TanBerry</h1>
+    <p class="subtitle">Enter the Realm of Creativity</p>
+    <button class="start-btn" onclick="enterRealm()">Enter the Realm</button>
   </header>
 
   <main id="main-content" style="display:none;">
     <section class="gallery" id="gallery">
-      <h2>Gallery of Models</h2>
+      <h2>🗺️ Artist's Map</h2>
       <div class="tiles">
-        <div class="tile" onclick="openModel('model1')">Temple of Concepts</div>
-        <div class="tile" onclick="openModel('model2')">Shrine of Renders</div>
-        <div class="tile" onclick="openModel('model3')">Artifact Room</div>
+        <div class="tile" onclick="openModel('model1')">🏰 Temple of Concepts</div>
+        <div class="tile" onclick="openModel('model2')">🌀 Shrine of Renders</div>
+        <div class="tile" onclick="openModel('model3')">📦 Artifact Room</div>
       </div>
     </section>
 
     <section class="about" id="about">
-      <h2>About the Artist</h2>
-      <p>Name: TanBerry</p>
-      <ul>
-        <li>🎨 <strong>Strength</strong>: Sculpting</li>
-        <li>✨ <strong>Magic</strong>: Blender FX</li>
-        <li>🛡️ <strong>Wisdom</strong>: Game Aesthetics</li>
-      </ul>
+      <h2>📜 Character Profile</h2>
+      <div class="stat-card">
+        <p><strong>Name:</strong> TanBerry</p>
+        <ul>
+          <li>❤️ <strong>Strength:</strong> Sculpting</li>
+          <li>✨ <strong>Magic:</strong> Blender FX</li>
+          <li>🔮 <strong>Wisdom:</strong> Game Aesthetics</li>
+        </ul>
+      </div>
     </section>
 
     <section class="contact" id="contact">
-      <h2>Find the Artist</h2>
+      <h2>📬 Message Menu</h2>
       <ul class="social-links">
-        <li><a href="#">ArtStation</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Twitter</a></li>
+        <li><a href="#">🌐 ArtStation</a></li>
+        <li><a href="#">🔗 LinkedIn</a></li>
+        <li><a href="#">🐦 Twitter</a></li>
       </ul>
       <form>
         <label>Email:</label>
         <input type="email" placeholder="Your email" required />
         <label>Message:</label>
-        <textarea placeholder="Say something nice..." required></textarea>
+        <textarea placeholder="Send a scroll to the hero..." required></textarea>
         <button type="submit">Send Message</button>
       </form>
     </section>
 
     <footer>
-      <p>Made with 💙 by Player 2</p>
+      <p>🔍 Press "A" to hear a message from Player 2 💙</p>
+      <audio id="easterEgg" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
     </footer>
   </main>
 </body>
 </html>
+
 
