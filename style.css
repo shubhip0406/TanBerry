@@ -7,5 +7,132 @@ body {
   color: #2c3e50;
   scroll-behavior: smooth;
 }
-
-/* additional CSS omitted here to save space — included in actual file generation below */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d1e9ff;
+  padding: 10px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.nav-logo {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 2rem;
+  color: #3a7ca5;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #376c8e;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #1c4d6e;
+}
+.hero {
+  background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(#dceeff, #c2e0ff);
+  text-align: center;
+  padding: 120px 20px;
+  background-size: contain;
+}
+.logo {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 4rem;
+  margin-bottom: 10px;
+  color: #3a7ca5;
+}
+.subtitle {
+  font-size: 1.5rem;
+  color: #6c91c2;
+}
+button {
+  background-color: #7fbfff;
+  color: white;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+button:hover {
+  background-color: #5aa9ff;
+  transform: scale(1.05);
+}
+main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+h2 {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2a4d69;
+}
+.tiles {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tile {
+  background-color: #eaf5ff;
+  border: 2px solid #b5d9ff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s, background 0.3s;
+}
+.tile:hover {
+  transform: translateY(-5px);
+  background-color: #d4e9ff;
+}
+.about ul, .contact ul {
+  list-style: none;
+  padding: 0;
+}
+.about li, .contact li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+}
+input, textarea {
+  padding: 12px;
+  border: 1px solid #a7cfff;
+  border-radius: 10px;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1rem;
+  background-color: #f7fbff;
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #5aa9ff;
+  background-color: #fff;
+}
+footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.9rem;
+  color: #666;
+  padding-bottom: 20px;
+}
