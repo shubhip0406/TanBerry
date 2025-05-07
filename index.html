@@ -4,70 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TanBerry | Game Art Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=1" />
   <script defer src="script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-logo">TB</div>
-    <ul class="nav-links">
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
   <header class="hero">
-    <h1 class="logo">🎮 TanBerry</h1>
-    <p class="subtitle">Enter the Realm of Creativity</p>
-    <button class="start-btn" onclick="enterRealm()">Enter the Realm</button>
+    <h1 class="logo">TB</h1>
+    <p class="subtitle">Enter the Realm</p>
+    <button onclick="enterRealm()">Start Adventure</button>
   </header>
 
   <main id="main-content" style="display:none;">
-    <section class="gallery" id="gallery">
-      <h2>🗺️ Artist's Map</h2>
+    <section class="gallery">
+      <h2>Gallery of Models</h2>
       <div class="tiles">
-        <div class="tile" onclick="openModel('model1')">🏰 Temple of Concepts</div>
-        <div class="tile" onclick="openModel('model2')">🌀 Shrine of Renders</div>
-        <div class="tile" onclick="openModel('model3')">📦 Artifact Room</div>
+        <div class="tile" onclick="openModel('model1')">Temple of Concepts</div>
+        <div class="tile" onclick="openModel('model2')">Shrine of Renders</div>
+        <div class="tile" onclick="openModel('model3')">Artifact Room</div>
       </div>
     </section>
 
-    <section class="about" id="about">
-      <h2>📜 Character Profile</h2>
-      <div class="stat-card">
-        <p><strong>Name:</strong> TanBerry</p>
-        <ul>
-          <li>❤️ <strong>Strength:</strong> Sculpting</li>
-          <li>✨ <strong>Magic:</strong> Blender FX</li>
-          <li>🔮 <strong>Wisdom:</strong> Game Aesthetics</li>
-        </ul>
-      </div>
+    <section class="about">
+      <h2>About the Artist</h2>
+      <p>Name: TanBerry</p>
+      <ul>
+        <li>🎨 Strength: Sculpting</li>
+        <li>✨ Magic: Blender FX</li>
+        <li>🛡️ Wisdom: Game Aesthetics</li>
+      </ul>
     </section>
 
-    <section class="contact" id="contact">
-      <h2>📬 Message Menu</h2>
+    <section class="contact">
+      <h2>Find the Artist</h2>
       <ul class="social-links">
-        <li><a href="#">🌐 ArtStation</a></li>
-        <li><a href="#">🔗 LinkedIn</a></li>
-        <li><a href="#">🐦 Twitter</a></li>
+        <li><a href="#">ArtStation</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter</a></li>
       </ul>
       <form>
         <label>Email:</label>
-        <input type="email" placeholder="Your email" required />
+        <input type="email" required />
         <label>Message:</label>
-        <textarea placeholder="Send a scroll to the hero..." required></textarea>
+        <textarea required></textarea>
         <button type="submit">Send Message</button>
       </form>
     </section>
 
     <footer>
-      <p>🔍 Press "A" to hear a message from Player 2 💙</p>
-      <audio id="easterEgg" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+      <p>Made with 💙 by Player 2</p>
     </footer>
   </main>
 </body>
 </html>
+
 
 
