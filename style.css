@@ -1,27 +1,27 @@
-/* style.css for TanBerry Portfolio - Refined */
+/* style.css - Zelda + Pastel Theme */
 
 body {
   margin: 0;
   font-family: 'Comfortaa', cursive;
-  background: linear-gradient(to bottom, #e6f2ff, #f9fcff);
-  color: #2c3e50;
+  background: linear-gradient(to bottom, #e0f4ff, #f9fbff);
+  color: #2d4059;
   scroll-behavior: smooth;
 }
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #d1e9ff;
+  background-color: #d2ecff;
   padding: 10px 30px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .nav-logo {
   font-family: 'IM Fell English SC', serif;
   font-size: 2rem;
-  color: #3a7ca5;
+  color: #2a7ca3;
 }
 .nav-links {
   list-style: none;
@@ -30,41 +30,41 @@ body {
 }
 .nav-links a {
   text-decoration: none;
-  font-size: 1rem;
-  color: #376c8e;
-  transition: color 0.3s;
+  color: #345d7e;
+  font-weight: bold;
 }
 .nav-links a:hover {
-  color: #1c4d6e;
+  color: #123954;
 }
 .hero {
-  background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(#dceeff, #c2e0ff);
+  background: url('https://www.transparenttextures.com/patterns/clouds.png') center no-repeat;
+  background-size: cover;
   text-align: center;
-  padding: 120px 20px;
-  background-size: contain;
+  padding: 100px 20px;
 }
 .logo {
-  font-family: 'IM Fell English SC', serif;
   font-size: 4rem;
-  margin-bottom: 10px;
-  color: #3a7ca5;
+  font-family: 'IM Fell English SC', serif;
+  color: #376c8e;
 }
 .subtitle {
-  font-size: 1.5rem;
-  color: #6c91c2;
+  font-size: 1.2rem;
+  color: #5e8fb8;
+  margin-bottom: 20px;
 }
-button {
-  background-color: #7fbfff;
-  color: white;
+.start-btn {
+  background-color: #aad4ff;
+  color: #002f4b;
   padding: 12px 28px;
   font-size: 1rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #d6f0ff;
 }
-button:hover {
-  background-color: #5aa9ff;
+.start-btn:hover {
+  background-color: #82c3ff;
   transform: scale(1.05);
 }
 main {
@@ -75,64 +75,75 @@ main {
 h2 {
   font-family: 'IM Fell English SC', serif;
   font-size: 2rem;
+  color: #234a67;
   margin-bottom: 20px;
-  color: #2a4d69;
 }
 .tiles {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
 }
 .tile {
-  background-color: #eaf5ff;
-  border: 2px solid #b5d9ff;
-  padding: 30px 20px;
-  border-radius: 16px;
+  background-color: #f2faff;
+  border: 2px dashed #a9d6ff;
+  padding: 25px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  width: 220px;
   text-align: center;
-  font-size: 1.2rem;
   cursor: pointer;
-  width: 200px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s, background 0.3s;
+  transition: all 0.3s ease;
 }
 .tile:hover {
+  background-color: #d8efff;
   transform: translateY(-5px);
-  background-color: #d4e9ff;
 }
-.about ul, .contact ul {
+.stat-card {
+  background-color: #fffdf7;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #f5deb3;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.stat-card ul {
   list-style: none;
   padding: 0;
 }
-.about li, .contact li {
+.stat-card li {
   margin-bottom: 10px;
-  font-size: 1.1rem;
-  line-height: 1.6;
 }
 form {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   max-width: 500px;
 }
 input, textarea {
-  padding: 12px;
-  border: 1px solid #a7cfff;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #a2cfff;
+  background-color: #f9fcff;
   font-family: 'Comfortaa', cursive;
-  font-size: 1rem;
-  background-color: #f7fbff;
 }
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #5aa9ff;
-  background-color: #fff;
+button[type="submit"] {
+  padding: 10px;
+  background-color: #88c6ff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button[type="submit"]:hover {
+  background-color: #63b5ff;
 }
 footer {
   text-align: center;
-  margin-top: 60px;
-  font-size: 0.9rem;
-  color: #666;
-  padding-bottom: 20px;
+  margin-top: 50px;
+  font-size: 0.95rem;
+  color: #5a5a5a;
+  padding: 20px;
 }
+
