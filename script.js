@@ -2,7 +2,9 @@
 
 function switchScene(targetId) {
   const scenes = document.querySelectorAll(".scene");
-  scenes.forEach(scene => scene.classList.remove("active"));
+  scenes.forEach(scene => {
+    scene.classList.remove("active");
+  });
   setTimeout(() => {
     document.getElementById(targetId).classList.add("active");
   }, 100);
@@ -20,5 +22,6 @@ window.addEventListener("keydown", function(e) {
     alert("💌 Message from Player 2: You're the hero of this realm. I believe in you!");
   }
 });
+
 
 
