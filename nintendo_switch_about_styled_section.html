@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nintendo Switch Portfolio</title>
+    <style>
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        
+        .switch-container {
+            width: 900px;
+            height: 450px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+        
+        .switch-body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background-color: #111111;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .joycon {
+            height: 100%;
+            width: 120px;
+            position: relative;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .joycon-left {
+            background-color: #00c3e3; /* Neon blue */
+            border-radius: 40px 0 0 40px;
+            box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .joycon-right {
+            background-color: #ff4554; /* Neon red */
+            border-radius: 0 40px 40px 0;
+            box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .switch-screen {
+            flex: 1;
+            background-color: #000;
+            margin: 15px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5) inset;
+        }
+        
+        .screen-content {
+            width: 100%;
+            height: 100%;
+            background-color: #2f3542;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Analog sticks */
+        .analog-stick {
+            width: 38px;
+            height: 38px;
+            background-color: #333;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+        
+        .analog-stick::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #444;
+            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+        }
+        
+        .analog-stick:hover {
+            transform: scale(1.05);
+        }
+        
+        .joycon-left .analog-stick {
+            margin-top: 70px;
+        }
+        
+        .joycon-right .analog-stick {
+            margin-bottom: 70px;
+        }
+        
+        /* D-pad */
+        .dpad {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin-bottom: 70px;
+        }
+        
+        .dpad-button {
+            position: absolute;
+            background-color: #333;
+            cursor: pointer;
+        }
+        
+        .dpad-up {
+            width: 25px;
+            height: 25px;
+            top: 0;
+            left: 28px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .dpad-right {
+            width: 25px;
+            height: 25px;
+            top: 28px;
+            right: 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .dpad-down {
+            width: 25px;
+            height: 25px;
+            bottom: 0;
+            left: 28px;
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .dpad-left {
+            width: 25px;
+            height: 25px;
+            top: 28px;
+            left: 0;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .dpad-center {
+            width: 25px;
+            height: 25px;
+            top: 28px;
+            left: 28px;
+            background-color: #444;
+        }
+        
+        .dpad-button:hover {
+            background-color: #444;
+            transform: scale(1.05);
+        }
+        
+        /* Face buttons */
+        .face-buttons {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin-top: 70px;
+        }
+        
+        .face-button {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .button-a {
+  background-color: #555;
+  bottom: 0;
+  left: 28px;
+  color: white;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+        
+        .button-b {
+  background-color: #555;
+  top: 28px;
+  right: 0;
+  color: white;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+        
+        .button-x {
+  background-color: #555;
+  top: 28px;
+  left: 0;
+  color: white;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+        
+        .button-y {
+  background-color: #555;
+  top: 0;
+  left: 28px;
+  color: white;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+        
+        .face-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Utility buttons */
+        .utility-button {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #333;
+            cursor: pointer;
+        }
+        
+        .button-minus {
+            position: relative;
+        }
+        
+        .button-minus:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            background-color: white;
+            top: 9px;
+            left: 5px;
+        }
+        
+        .button-plus {
+            position: relative;
+        }
+        
+        .button-plus:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 2px;
+            background-color: white;
+            top: 9px;
+            left: 5px;
+        }
+        
+        .button-plus:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background-color: white;
+            top: 5px;
+            left: 9px;
+        }
+        
+        .button-home {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .button-home:after {
+            content: '⌂';
+            color: white;
+            font-size: 18px;
+        }
+        
+        .button-screenshot {
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .button-screenshot:after {
+            content: '◙';
+            color: white;
+            font-size: 14px;
+        }
+        
+        .utility-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Switch UI */
+        .switch-ui {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .games-grid {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+        
+        .games-grid::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .game-tile {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  background-color: #4d5566;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform: scale(0.95);
+}
+
+.game-tile:hover {
+  transform: scale(1.1);
+  background-color: #a0c4ff;
+  color: #111;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+        
+        .game-tile.active {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            background-color: #5a637a;
+        }
+        
+        .game-icon {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .game-label {
+            color: white;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .switch-footer {
+            height: 80px;
+            background-color: #20232e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 30px;
+        }
+        
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+        
+        .footer-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .footer-label {
+            color: #8c94a8;
+            font-size: 12px;
+        }
+        
+        .footer-item:hover .footer-icon {
+            color: #00c3e3;
+        }
+        
+        .footer-item:hover .footer-label {
+            color: white;
+        }
+        
+        .content-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #2f3542;
+            display: none;
+            flex-direction: column;
+            padding: 30px;
+            color: white;
+            overflow-y: auto;
+        }
+        
+        .content-section.active {
+            display: flex;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .back-button {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #4d5566;
+            color: white;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            color: white;
+        }
+        
+        .section-content {
+            flex: 1;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 950px) {
+            .switch-container {
+                width: 90%;
+                height: auto;
+                transform: none !important;
+            }
+            
+            .switch-body {
+                flex-direction: column;
+                height: 100vh;
+                border-radius: 20px;
+            }
+            
+            .joycon {
+                display: none;
+            }
+            
+            .switch-screen {
+                margin: 0;
+                border-radius: 0;
+                height: 100%;
+            }
+            
+            .games-grid {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+            
+            .game-tile {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  background-color: #4d5566;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform: scale(0.95);
+}
+
+.game-tile:hover {
+  transform: scale(1.1);
+  background-color: #a0c4ff;
+  color: #111;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+            
+            .switch-footer {
+                padding: 0 10px;
+            }
+            
+            .footer-item {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="switch-container" id="switchContainer">
+        <div class="switch-body">
+            <div class="joycon joycon-left">
+                <div class="button-minus utility-button" id="konamiButton1"></div>
+                <div class="button-screenshot utility-button" id="konamiButton2"></div>
+                <div class="analog-stick" id="konamiButton7"></div>
+                <div class="dpad">
+                    <div class="dpad-button dpad-up" id="konamiButton3"></div>
+                    <div class="dpad-button dpad-right" id="konamiButton4"></div>
+                    <div class="dpad-button dpad-down" id="konamiButton5"></div>
+                    <div class="dpad-button dpad-left" id="konamiButton6"></div>
+                    <div class="dpad-button dpad-center"></div>
+                </div>
+            </div>
+            
+            <div class="switch-screen">
+                <div class="screen-content">
+                    <div class="switch-ui">
+                        <div class="games-grid" id="gamesGrid">
+                            <div class="game-tile" data-section="about">
+                                <div class="game-icon">👤</div>
+                                <div class="game-label">About Me</div>
+                            </div>
+                            <div class="game-tile" data-section="portfolio">
+                                <div class="game-icon">🎨</div>
+                                <div class="game-label">Art Portfolio</div>
+                            </div>
+                            <div class="game-tile" data-section="contact">
+                                <div class="game-icon">✉️</div>
+                                <div class="game-label">Contact</div>
+                            </div>
+                        </div>
+                        <div class="switch-footer">
+                            <div class="footer-item" data-section="news">
+                                <div class="footer-icon">📰</div>
+                                <div class="footer-label">News</div>
+                            </div>
+                            <div class="footer-item" data-section="gallery">
+                                <div class="footer-icon">🖼️</div>
+                                <div class="footer-label">Gallery</div>
+                            </div>
+                            <div class="footer-item" data-section="settings">
+                                <div class="footer-icon">⚙️</div>
+                                <div class="footer-label">Settings</div>
+                            </div>
+                            <div class="footer-item" data-section="power">
+                                <div class="footer-icon">⏻</div>
+                                <div class="footer-label">Power</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Sections -->
+                    
+
+<div class="content-section" id="aboutSection">
+  <div class="section-header">
+    <div class="back-button">←</div>
+    <div class="section-title">About Tanisha ❤️</div>
+  </div>
+  <div class="section-content" style="font-size: 16px; line-height: 1.6;">
+    <p style="font-style: italic; font-size: 18px; margin-bottom: 20px;">
+      I don’t think there’s a way to fully explain Tanisha — but I’ll try.
+    </p>
+    <p>
+      She’s funny in the most effortless way, says the most unexpected things, and has this energy that’s somewhere between chaotic and childlike and completely genuine.
+    </p>
+    <div style="margin: 20px 0; text-align: center;">
+      <img src="https://static.wikia.nocookie.net/zelda_gamepedia_en/images/d/db/Heart_Container_Artwork_2.png" alt="Heart Container" style="height: 60px;">
+    </div>
+    <p>
+      There’s something about her that makes ordinary things feel a little softer — like playing cards over a video call, or solving a Wordle together at midnight, that somehow turns into a ritual.
+    </p>
+    <p>
+      This isn’t just a section about her. It’s a little digital keepsake of all the joy she brings into my days.
+    </p>
+  </div>
+</div>
+
+
+                    
+                    
+<div class="content-section" id="portfolioSection">
+  <div class="section-header">
+    <div class="back-button">←</div>
+    <div class="section-title">Our Gallery</div>
+  </div>
+  <div class="section-content">
+    <p>Here’s our co-op collection — clicks, selfies, and all the saved checkpoints we’ve unlocked together.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;">
+      <img src="photos/photo1.jpg" alt="Memory 1" style="width: 160px; border-radius: 8px;">
+      <img src="photos/photo2.jpg" alt="Memory 2" style="width: 160px; border-radius: 8px;">
+      <img src="photos/photo3.jpg" alt="Memory 3" style="width: 160px; border-radius: 8px;">
+    </div>
+  </div>
+</div>
+
+                    
+                    <div class="content-section" id="3dSection">
+                        <div class="section-header">
+                            <div class="back-button">←</div>
+                            <div class="section-title">3D Work</div>
+                        </div>
+                        <div class="section-content">
+                            <p>Content for 3D Work section will go here.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="resumeSection">
+                        <div class="section-header">
+                            <div class="back-button">←</div>
+                            <div class="section-title">Resume</div>
+                        </div>
+                        <div class="section-content">
+                            <p>Content for Resume section will go here.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="contactSection">
+                        <div class="section-header">
+                            <div class="back-button">←</div>
+                            <div class="section-title">Contact</div>
+                        </div>
+                        <div class="section-content">
+                            <p>Content for Contact section will go here.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="newsSection">
+                        <div class="section-header">
+                            <div class="back-button">←</div>
+                            <div class="section-title">News</div>
+                        </div>
+                        <div class="section-content">
+                            <p>Latest news and updates will go here.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="gallerySection">
+                        <div class="section-header">
+                            <div class="back-button">←</div>
+                            <div class="section-title">Gallery</div>
+                        </div>
+                        <div class="section-content">
+                            <p>Gallery of work samples will go here.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="settingsSection">
+                        <div class="section-header">
+                            <div class="back-button">←</div>
+                            <div class="section-title">Settings</div>
+                        </div>
+                        <div class="section-content">
+                            <p>Settings options will go here.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section" id="powerSection">
+                        <div class="section-header">
+                            <div class="back-button">←</div>
+                            <div class="section-title">Power</div>
+                        </div>
+                        <div class="section-content">
+                            <p>Power options will go here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="joycon joycon-right">
+                <div class="face-buttons">
+                    <div class="face-button button-a" id="konamiButton9">A</div>
+                    <div class="face-button button-b" id="konamiButton10">B</div>
+                    <div class="face-button button-x" id="konamiButton11">X</div>
+                    <div class="face-button button-y" id="konamiButton12">Y</div>
+                </div>
+                <div class="analog-stick" id="konamiButton8"></div>
+                <div class="button-plus utility-button" id="konamiButton13"></div>
+                <div class="button-home utility-button" id="konamiButton14"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 3D Tilt Effect on mouse move
+        const switchContainer = document.getElementById('switchContainer');
+        const maxTilt = 2; // Max tilt in degrees
+        
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth <= 950) return; // Disable tilt on mobile
+            
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            
+            // Limit maximum tilt
+            const tiltX = Math.max(-maxTilt, Math.min(maxTilt, yAxis));
+            const tiltY = Math.max(-maxTilt, Math.min(maxTilt, -xAxis));
+            
+            switchContainer.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        });
+        
+        // Reset tilt when mouse leaves
+        document.addEventListener('mouseleave', () => {
+            switchContainer.style.transform = 'rotateX(0) rotateY(0)';
+        });
+        
+        // Game tile interactions
+        const gameTiles = document.querySelectorAll('.game-tile');
+        const contentSections = document.querySelectorAll('.content-section');
+        const backButtons = document.querySelectorAll('.back-button');
+        const footerItems = document.querySelectorAll('.footer-item');
+        
+        // Function to play click sound
+        function playClickSound() {
+            // Placeholder for click sound
+            // In a real implementation, you would use:
+            // const clickSound = new Audio('click.mp3');
+            // clickSound.play();
+        }
+        
+        // Make game tiles interactive
+        gameTiles.forEach(tile => {
+            tile.addEventListener('click', () => {
+                playClickSound();
+                
+                const section = tile.getAttribute('data-section');
+                const targetSection = document.getElementById(`${section}Section`);
+                
+                // Animate transition
+                document.querySelector('.switch-ui').style.opacity = 0;
+                
+                setTimeout(() => {
+                    document.querySelector('.switch-ui').style.display = 'none';
+                    targetSection.style.display = 'flex';
+                    setTimeout(() => {
+                        targetSection.style.opacity = 1;
+                    }, 50);
+                }, 300);
+            });
+            
+            // Hover effect - active class
+            tile.addEventListener('mouseenter', () => {
+                gameTiles.forEach(t => t.classList.remove('active'));
+                tile.classList.add('active');
+            });
+        });
+        
+        // Make footer items interactive
+        footerItems.forEach(item => {
+            item.addEventListener('click', () => {
+                playClickSound();
+                
+                const section = item.getAttribute('data-section');
+                const targetSection = document.getElementById(`${section}Section`);
+                
+                // Animate transition
+                document.querySelector('.switch-ui').style.opacity = 0;
+                
+                setTimeout(() => {
+                    document.querySelector('.switch-ui').style.display = 'none';
+                    targetSection.style.display = 'flex';
+                    setTimeout(() => {
+                        targetSection.style.opacity = 1;
+                    }, 50);
+                }, 300);
+            });
+        });
+        
+        // Back button functionality
+        backButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                playClickSound();
+                
+                const currentSection = button.closest('.content-section');
+                currentSection.style.opacity = 0;
+                
+                setTimeout(() => {
+                    currentSection.style.display = 'none';
+                    document.querySelector('.switch-ui').style.display = 'flex';
+                    setTimeout(() => {
+                        document.querySelector('.switch-ui').style.opacity = 1;
+                    }, 50);
+                }, 300);
+            });
+        });
+        
+        // Initialize content sections and UI
+        document.querySelector('.switch-ui').style.opacity = 1;
+        contentSections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.display = 'none';
+        });
+        
+        // Konami Code Implementation
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiPosition = 0;
+        
+        document.addEventListener('keydown', (e) => {
+            const key = e.key;
+            const requiredKey = konamiCode[konamiPosition];
+            
+            if (key === requiredKey) {
+                konamiPosition++;
+                
+                if (konamiPosition === konamiCode.length) {
+                    activateKonamiCode();
+                    konamiPosition = 0;
+                }
+            } else {
+                konamiPosition = 0;
+            }
+        });
+        
+        // Konami code activation
+        function activateKonamiCode() {
+            // Rainbow effect on the Switch body
+            const switchBody = document.querySelector('.switch-body');
+            const joycons = document.querySelectorAll('.joycon');
+            
+            // Create a rainbow animation
+            document.body.style.animation = 'rainbow 5s linear infinite';
+            
+            // Add the CSS for the rainbow animation
+            const styleElement = document.createElement('style');
+            styleElement.textContent = `
+                @keyframes rainbow {
+                    0% { background-color: #ff0000; }
+                    16.6% { background-color: #ff8000; }
+                    33.3% { background-color: #ffff00; }
+                    50% { background-color: #00ff00; }
+                    66.6% { background-color: #0000ff; }
+                    83.3% { background-color: #8000ff; }
+                    100% { background-color: #ff0000; }
+                }
+                
+                @keyframes joyconRainbow {
+                    0% { filter: hue-rotate(0deg); }
+                    100% { filter: hue-rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(styleElement);
+            
+            // Apply the rainbow effect to the joycons
+            joycons.forEach(joycon => {
+                joycon.style.animation = 'joyconRainbow 5s linear infinite';
+            });
+            
+            // Apply some bounce effect to the Switch
+            switchContainer.style.animation = 'bounce 0.5s ease';
+            
+            // Add the bounce animation
+            const bounceStyle = document.createElement('style');
+            bounceStyle.textContent = `
+                @keyframes bounce {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                }
+            `;
+            document.head.appendChild(bounceStyle);
+            
+            // Reset after 5 seconds
+            setTimeout(() => {
+                document.body.style.animation = '';
+                joycons.forEach(joycon => {
+                    joycon.style.animation = '';
+                });
+                switchContainer.style.animation = '';
+            }, 5000);
+        }
+        
+        // Alternative way to input Konami code with buttons
+        const konamiButtons = [
+            document.getElementById('konamiButton3'), // Up
+            document.getElementById('konamiButton3'), // Up
+            document.getElementById('konamiButton5'), // Down
+            document.getElementById('konamiButton5'), // Down
+            document.getElementById('konamiButton6'), // Left
+            document.getElementById('konamiButton4'), // Right
+            document.getElementById('konamiButton6'), // Left
+            document.getElementById('konamiButton4'), // Right
+            document.getElementById('konamiButton10'), // B
+            document.getElementById('konamiButton9')  // A
+        ];
+        
+        let buttonKonamiPosition = 0;
+        
+        konamiButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                if (index === buttonKonamiPosition) {
+                    buttonKonamiPosition++;
+                    
+                    if (buttonKonamiPosition === konamiButtons.length) {
+                        activateKonamiCode();
+                        buttonKonamiPosition = 0;
+                    }
+                } else {
+                    buttonKonamiPosition = 0;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
