@@ -556,7 +556,20 @@
                 margin: 0 10px;
             }
         }
-    </style>
+    
+/* Hover animation for contact cards */
+.card:hover {
+    transform: scale(1.05) rotate(-1deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+.ribbon {
+    font-size: 12px;
+    color: #ff7675;
+    font-weight: bold;
+    margin-top: 6px;
+}
+</style>
 </head>
 <body>
 <div class="switch-container" id="switchContainer">
@@ -609,14 +622,18 @@
 </div>
 <div class="section-content" style="font-size: 16px; line-height: 1.6;">
 <p style="font-style: italic; font-size: 18px; margin-bottom: 20px;">
-      I don’t think there’s a way to fully explain Tanisha — but I’ll try.
-    </p>
+  I don’t think there’s a way to fully explain Tanisha — but I’ll try.
+</p>
 <p>
-      She’s funny in the most effortless way, says the most unexpected things, and has this energy that’s somewhere between chaotic and childlike and completely genuine.
-    </p>
-<p>
-      There’s something about her that makes ordinary things feel a little softer — like playing cards over a video call, or solving a Wordle together at midnight, that somehow turns into a ritual.
-    </p>
+  She’s funny in the most effortless way, says the most unexpected things, and has this energy that’s somewhere between chaotic and childlike but completely genuine.
+</p>
+<p style="margin-top: 15px;">
+  She’s got this way of making even the most random little things feel fun, whether it is solving the Wordle or just scrolling on reels together.
+</p>
+<p style="margin-top: 25px; font-weight: bold; font-size: 16px;">
+  To my best Wordle buddy, Happy Birthday!<br/>
+  Hope you get everything that you wish for and even more! 🎉
+</p>
 </div>
 </div>
 <div class="content-section" id="portfolioSection">
@@ -675,26 +692,26 @@
 <div class="section-content">
 <p style="margin-bottom: 20px; font-size: 18px;">🎮 Here's our little arcade of online games — each one a level we keep coming back to!</p>
 <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-<div style="background-color: #2d3436; border-radius: 12px; padding: 16px; width: 180px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+<div class="card" style="background-color: #2d3436; border-radius: 12px; padding: 16px; width: 180px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
 <div style="font-size: 32px; margin-bottom: 10px;">🟨</div>
 <a href="https://www.nytimes.com/games/wordle/index.html" style="color: #00cec9; font-weight: bold; font-size: 16px; text-decoration: none;" target="_blank">NYT Wordle</a>
 <p style="font-size: 13px; color: #dfe6e9; margin-top: 5px;">Daily puzzles &amp; midnight bragging rights</p>
-</div>
-<div style="background-color: #2d3436; border-radius: 12px; padding: 16px; width: 180px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+<div class="ribbon">👫 2P Mode</div></div>
+<div class="card" style="background-color: #2d3436; border-radius: 12px; padding: 16px; width: 180px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
 <div style="font-size: 32px; margin-bottom: 10px;">🧩</div>
 <a href="https://www.nytimes.com/games/connections" style="color: #a29bfe; font-weight: bold; font-size: 16px; text-decoration: none;" target="_blank">NYT Connections</a>
 <p style="font-size: 13px; color: #dfe6e9; margin-top: 5px;">Pattern matching with wild guesses</p>
-</div>
-<div style="background-color: #2d3436; border-radius: 12px; padding: 16px; width: 180px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+<div class="ribbon">👫 2P Mode</div></div>
+<div class="card" style="background-color: #2d3436; border-radius: 12px; padding: 16px; width: 180px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
 <div style="font-size: 32px; margin-bottom: 10px;">🎴</div>
 <a href="https://rummikub.com/play-rummikub-online/" style="color: #fab1a0; font-weight: bold; font-size: 16px; text-decoration: none;" target="_blank">Rummikub</a>
 <p style="font-size: 13px; color: #dfe6e9; margin-top: 5px;">Where logic meets silly competition</p>
-</div>
-<div style="background-color: #2d3436; border-radius: 12px; padding: 16px; width: 180px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+<div class="ribbon">👫 2P Mode</div></div>
+<div class="card" style="background-color: #2d3436; border-radius: 12px; padding: 16px; width: 180px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
 <div style="font-size: 32px; margin-bottom: 10px;">🏎</div>
 <a href="https://smashkarts.io/" style="color: #81ecec; font-weight: bold; font-size: 16px; text-decoration: none;" target="_blank">Smash Karts</a>
 <p style="font-size: 13px; color: #dfe6e9; margin-top: 5px;">Power-ups, speed boosts, and chaos</p>
-</div>
+<div class="ribbon">👫 2P Mode</div></div>
 </div>
 </div>
 </div>
